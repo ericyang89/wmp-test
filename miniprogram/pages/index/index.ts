@@ -15,6 +15,13 @@ Page({
       url: '../logs/logs',
     })
   },
+  goToListViewTap(){
+    console.log(333);
+    wx.navigateTo({
+      url: '../list/list',
+    })
+  },
+
   onLoad() {
     if (app.globalData.userInfo) {
       this.setData({
