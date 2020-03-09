@@ -1,0 +1,2 @@
+<!--components/test-component.wxml-->
+<text class="inner">{{content}}</text>

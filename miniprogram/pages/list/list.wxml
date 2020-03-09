@@ -1,2 +1,4 @@
-<!--miniprogram/pages/list/list.wxml-->
-<text>miniprogram/pages/list/list.wxml</text>
+<!-- miniprogram/pages/list/list.wxml -->
+<view>
+  <weui-search-bar id="listSearchBar" search="{{search}}" bindselectresult="selectResult"></weui-search-bar>
+</view>

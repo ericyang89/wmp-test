@@ -1,0 +1,4 @@
+/* components/test-component.wxss */
+.inner{
+  font-size: 20px;
+}

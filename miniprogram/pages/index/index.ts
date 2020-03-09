@@ -15,7 +15,7 @@ Page({
       url: '../logs/logs',
     })
   },
-  goToListViewTap(){
+  goToListViewTap() {
     console.log(333);
     wx.navigateTo({
       url: '../list/list',
@@ -23,6 +23,14 @@ Page({
   },
 
   onLoad() {
+
+    //just for test 
+    setTimeout(() => {
+      wx.navigateTo({
+        url: '../list/list',
+      })
+    }, 1000);
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
