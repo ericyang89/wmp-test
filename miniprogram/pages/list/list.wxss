@@ -1,1 +1,24 @@
 /* miniprogram/pages/list/list.wxss */
+
+.wrapper {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.desc {
+  width: 100%;
+  color: #333;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.left {
+  display: flex;
+}
+.right {
+  display: flex;
+}

@@ -1,4 +1,27 @@
 <!-- miniprogram/pages/list/list.wxml -->
 <view>
-  <weui-search-bar id="listSearchBar" search="{{search}}" bindselectresult="selectResult"></weui-search-bar>
+  <van-search value="{{ value }}" bind:change="onChange" bind:search="onSearch" placeholder="请输入搜索关键词" use-action-slot>
+    <view slot="action" bind:tap="onClick">搜索</view>
+  </van-search>
+  <view wx:if="{{loading}}">
+    <van-loading type="spinner" />
+  </view>
+  <van-cell-group wx:elif="{{dataList.length>0}}">
+    <van-cell use-label-slot custom-class="wrapper" url="{{'/pages/position/index?positionId='+item.positionId}}" wx:for="{{dataList}}" wx:key="{{item.positionId}}">
+      <view slot="title" class="title">{{item.positionName}}</view>
+      <view slot="label" class="desc">
+        <view class="left">
+          {{item.departmentName}}
+        |
+        {{item.salaryScopeDesc}}
+        |
+        {{item.workNatureDesc}}
+        |
+        {{item.workplaceDesc}}
+        </view>
+        <view class="right">{{item.updateTime}}</view>
+      </view>
+    </van-cell>
+  </van-cell-group>
+  <view wx:else="{{dataList===0}}"></view>
 </view>

@@ -1,0 +1,44 @@
+<!-- miniprogram/pages/position/index.wxml -->
+<view class="wrapper">
+  <view class="baseline">
+    <text class="baseTitle">推荐信息</text>
+  </view>
+  <van-cell-group>
+    <van-cell value-class="content" title="推荐人：" value="{{data.recommendName}}"></van-cell>
+    <van-cell value-class="content" title="邮箱：" value="{{data.recommendEmail}}"></van-cell>
+  </van-cell-group>
+  <view class="baseline">
+    <text class="baseTitle">职位信息</text>
+  </view>
+  <van-panel header-class="subTitle" title="{{data.positionInfo.positionName}}" class="content">
+    <view class="contentWrapper">
+      <text wx:if="{{data.positionInfo.workplaceDesc}}" class="content">
+        工作地点：{{data.positionInfo.workplaceDesc}}
+      </text>
+      <text wx:if="{{data.positionInfo.workExperienceDesc}}" class="content">
+        工作经验：{{data.positionInfo.workExperienceDesc}}
+      </text>
+      <text wx:if="{{data.positionInfo.salaryScopeDesc}}" class="content">
+        薪资范围：{{data.positionInfo.salaryScopeDesc}}
+      </text>
+      <text wx:if="{{data.positionInfo.educationDesc}}" class="content">
+        学历要求：{{data.positionInfo.educationDesc}}
+      </text>
+      <text wx:if="{{data.positionInfo.updateTime}}" class="content">
+        更新时间：{{data.positionInfo.updateTime}}
+      </text>
+    </view>
+  </van-panel>
+  <van-divider customStyle="color: #1989fa;height:0;margin:0;padding:0;"></van-divider>
+  <van-panel header-class="subTitle" title="工作职责">
+    <view class="contentWrapper">
+      <text>{{data.positionInfo.qualification}}</text>
+    </view>
+  </van-panel>
+  <van-divider customStyle="color: #1989fa;height:0;margin:0;padding:0;"></van-divider>
+  <van-panel header-class="subTitle" title="任职资格">
+    <view class="contentWrapper">
+      <text>{{data.positionInfo.duty}}</text>
+    </view>
+  </van-panel>
+</view>

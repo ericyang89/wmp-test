@@ -1,6 +1,9 @@
 {
   "usingComponents": {
     "test-component": "./../components/test-component",
-    "weui-search-bar": "./../../miniprogram_npm/weui-miniprogram/searchbar/searchbar"
+    "van-search": "./../../miniprogram_npm/@vant/weapp/search/index",
+    "van-cell-group": "./../../miniprogram_npm/@vant/weapp/cell-group/index",
+    "van-cell": "./../../miniprogram_npm/@vant/weapp/cell/index",
+    "van-loading": "./../../miniprogram_npm/@vant/weapp/loading/index"
   }
 }

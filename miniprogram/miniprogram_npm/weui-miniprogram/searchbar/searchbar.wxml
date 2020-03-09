@@ -17,7 +17,7 @@
     </view>
 </view>
 <mp-cells class="searchbar-result  {{extClass}}" wx:if="{{searchState && result.length > 0}}">
-    <mp-cell bindtap="selectResult" data-index="{{index}}" wx:key="{{index}}-{{item}}" wx:for="{{result}}" hover>
+    <mp-cell bindtap="selectResult" data-index="{{index}}" wx:key="{{item}}" wx:for="{{result}}" hover>
         <view>{{item.text}}</view>
     </mp-cell>
 </mp-cells>

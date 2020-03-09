@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "miniprogram-api-promise": "^1.0.4",
-    "weui-miniprogram": "^0.2.1"
+    "@vant/weapp": "^1.0.7",
+    "miniprogram-api-promise": "^1.0.4"
   },
   "devDependencies": {},
   "scripts": {

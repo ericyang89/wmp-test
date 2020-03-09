@@ -1,6 +1,5 @@
 import commonResquest from "../../utils/commonRequest";
-import searchHelper from './searchHelper'
-import { xhsToken } from '../../config/constant';
+import { xhsToken } from "../../config/constant";
 
 // const app = getApp<IAppOption>();
 // miniprogram/pages/list/list.js
@@ -9,47 +8,60 @@ Page({
    * 页面的初始数据
    */
   data: {
+    laoding: true,
+    value: "",
     dataList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (_options) {
-    // console.log(app.globalData);
-    // console.log(_wxConfig.envVersion);
-    console.log(2222);
-    console.log(wx);
-    this.setData({
-      search: searchHelper.bind(this),
-      selectResult: this.selectResult,
-    });
-    this.selectResult({ detail: { text: '前端' } });
-    
-  },
-  hideResult: function(){
-    const searchComponent =      this.selectComponent('#listSearchBar');
-    searchComponent.setData({ result: [] });
+  onLoad(_options) {
+    // this.setData({
+    //   search: searchHelper.bind(this),
+    //   selectResult: this.selectResult,
+    // });
+    // this.selectResult({ detail: { text: '前端' } });
+    this.selectResult();
   },
 
-  selectResult: function(value: any) {
-    this.hideResult()
-    const url = '/positions/list'
+  onSearch() {
+    // console.log("搜索" + this.data.value);
+    this.selectResult();
+  },
+  onChange(event: any) {
+    this.setData({
+      value: event.detail
+    });
+  },
+
+  onClick() {
+    // console.log("搜索" + this.data.value);
+    this.selectResult();
+  },
+
+  selectResult() {
+    this.setData({ dataList: [], laoding: true });
+    const url = "/positions/list";
     const params = {
       pageNum: 1,
       pageSize: 10,
-      positionName: value.detail.text||"前端",
+      positionName: this.data.value || "前端",
       jobTypes: [],
       workplaces: [],
       xhsToken
     };
     return commonResquest({
       url,
-      method: 'POST',
-      data:params
-    }).then(val=>console.log(val)).catch(console.log)
-    
-  }
+      method: "POST",
+      data: params
+    })
+      .then(val => {
+        console.log(val.data.data.list);
+        this.setData({ dataList: val.data.data.list, laoding: false });
+      })
+      .catch(console.log);
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -79,10 +91,5 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {},
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {}
+  onReachBottom: function() {}
 });
